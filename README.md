@@ -4,12 +4,13 @@ Modular Python tool for producing original social media content.
 
 ## Features
 
-- AI-assisted content drafting (API key via environment variables)
+- AI-assisted content drafting (API key via environment variables, configurable length/tone)
 - X/Twitter post formatting
-- Facebook Reels metadata generation
+- Facebook Reels metadata generation (title, description, aspect ratio)
 - Caption and hashtag assistance
-- Content quality checks
+- Multi-platform content quality checks
 - Optional API integrations
+- Basic unit tests and CI workflow
 
 **No automatic publishing** unless you explicitly implement and approve it.
 
@@ -28,6 +29,7 @@ cp .env.example .env  # add your keys if needed
 
 ```bash
 python content_toolkit.py
+python -m unittest test_toolkit.py -v
 ```
 
 Extend the functions to call real AI APIs using keys from `.env`.
