@@ -2,7 +2,7 @@
 """Basic tests for content toolkit."""
 
 import unittest
-from content_toolkit import format_for_x, generate_hashtags, quality_check
+from content_toolkit import format_for_x, generate_hashtags, quality_check, format_for_reels
 
 class TestToolkit(unittest.TestCase):
     def test_format_for_x_truncates(self):
@@ -17,6 +17,11 @@ class TestToolkit(unittest.TestCase):
     def test_quality_check_returns_score(self):
         check = quality_check("Hello world")
         self.assertIn("score", check)
+
+    def test_format_for_reels(self):
+        meta = format_for_reels("Test content", "Title")
+        self.assertIn("aspect_ratio", meta)
+        self.assertEqual(meta["aspect_ratio"], "9:16")
 
 if __name__ == "__main__":
     unittest.main()
